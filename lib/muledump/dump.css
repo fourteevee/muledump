@@ -685,3 +685,236 @@ div.classstats > div.class {
     background-image: linear-gradient(#153a50, #163249, #162a41) !important;
 }
 
+
+/*  exalt enchantments  */
+.enchantIcon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url(../enchantments.png);
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    flex-shrink: 0;
+}
+
+.enchantIcon.empty {
+    background: #1c1c1c;
+    box-shadow: inset 0 0 0 1px #444;
+}
+
+.item .enchantMarkers {
+    position: absolute;
+    left: 2px;
+    top: 30px;
+    height: 8px;
+    display: flex;
+    gap: 2px;
+    pointer-events: none;
+    font: inherit;
+}
+
+/*  .item span (unknown item label) would otherwise absolutely position each marker  */
+.item .enchantMarkers .enchantIcon {
+    position: static;
+    box-shadow: 0 0 0 1px #000;
+}
+
+.item .enchantMarkers .enchantIcon.empty {
+    width: 8px;
+    height: 8px;
+    background: #1c1c1c;
+    box-shadow: 0 0 0 1px #000, inset 0 0 0 1px #555;
+}
+
+.enchantments {
+    margin-top: 6px;
+    padding-top: 4px;
+    border-top: 1px solid #444;
+    max-width: 340px;
+}
+
+.enchantment {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-top: 4px;
+    white-space: normal;
+}
+
+.enchantment .name {
+    color: #c48cff;
+}
+
+/*  exalt storages  */
+.storagelabel {
+    color: #ccc;
+    font-weight: bold;
+    margin: 4px 0 2px 2px;
+}
+
+.petcard {
+    width: 184px;
+    padding: 2px;
+}
+
+.petcard .pethead {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.petcard .petinfo {
+    font-size: 11px;
+    line-height: 13px;
+    color: #ccc;
+}
+
+.petcard .petname {
+    font-weight: bold;
+}
+
+/*  shiny items  */
+.item .shinymarker {
+    position: absolute;
+    top: 1px;
+    left: auto;
+    right: 1px;
+    width: 16px;
+    height: 16px;
+    background: url(../shiny.png) no-repeat;
+    background-size: 16px 16px;
+    image-rendering: pixelated;
+    pointer-events: none;
+}
+
+.tooltip.shinytext {
+    color: #ffb3f5;
+}
+
+/*  exaltations  */
+.exaltbonus {
+    color: #ffd84d;
+    font-size: 10px;
+    margin-left: 1px;
+    vertical-align: super;
+}
+
+.exalts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    margin: 2px 0;
+}
+
+.exalt {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20px;
+    padding: 1px 0;
+    background: #2a2a2a;
+    border: 1px solid #3a3a3a;
+    font-size: 9px;
+    line-height: 10px;
+    color: #888;
+    cursor: help;
+}
+
+.exalt.lv1, .exalt.lv2 { color: #cfcfcf; border-color: #6b5a1f; }
+.exalt.lv3, .exalt.lv4 { color: #ffe27a; border-color: #a8861d; }
+.exalt.lv5 { color: #fff; border-color: #ffd84d; background: #4a3d10; }
+
+/*  class quests (stars) in class stats  */
+.classquest {
+    color: #444;
+    margin-left: 1px;
+}
+
+.classquest.done {
+    color: #ffd84d;
+}
+
+/*  consumable slots: styled like the legacy hp/mp potion stacks  */
+.quickslots {
+    display: flex;
+    gap: 4px;
+    padding: 0 4px 4px 4px;
+    box-sizing: border-box;
+}
+
+.qslot {
+    position: relative;
+    flex: 1 1 0;
+    height: 20px;
+    padding: 2px;
+    background-color: #545454;
+    color: white;
+    font: bold 15px/20px Arial, sans-serif;
+    text-align: center;
+    text-shadow: -1px 0px 1px black, 1px 0px 1px black, 0px -1px 1px black, 0px 1px 1px black;
+    cursor: pointer;
+}
+
+.qslot .qsicon {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    background-image: url(../renders.png);
+    background-size: 500px auto;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+}
+
+.qslot.qsempty .qsicon {
+    background: none;
+}
+
+.qslot .qscount {
+    padding-left: 18px;
+}
+
+.itemsc.backpack.extender .item {
+    box-shadow: inset 0 0 0 1px #3d5a7a;
+}
+
+/*  character modes and cosmetics  */
+.charbadges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    align-items: center;
+    margin-top: 1px;
+    font-size: 10px;
+    line-height: 12px;
+}
+
+.charbadge {
+    padding: 0 3px;
+    border-radius: 2px;
+    color: #fff;
+    cursor: help;
+}
+
+.charbadge.seasonal { background: #2f6fb8; }
+.charbadge.crucible { background: #8a6d3b; }
+.charbadge.bloodritual { background: #8b1c1c; }
+
+.chartitle {
+    color: #d9c27a;
+    font-style: italic;
+    cursor: help;
+}
+
+/*  forge blueprints  */
+table.forge .item {
+    box-shadow: inset 0 0 0 1px #8a5a2b;
+}
+
+.scont .acctlvl {
+    margin-left: 0.4em;
+    color: #9fd3ff;
+    font-size: 0.85em;
+    cursor: help;
+}

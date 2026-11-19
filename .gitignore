@@ -1,3 +1,5 @@
 /accounts.js
 /.idea
 /jsdoc
+*.orig
+__pycache__/

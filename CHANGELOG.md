@@ -1,3 +1,17 @@
+**2026-11-18** version 9.6.5-exalt.1 (fork)
+
+- Account loading fixed for Deca's current API (account/verify access token, then char/list over POST)
+- Game data (items, skins, classes, sprites) regenerated from the current Exalt client: 13,173 items, 19 classes, 1,473 skins
+- New slot types: maces, sheaths, sigils (plus lutes and wakizashis in the slot map)
+- Enchantment display (markers, tooltip details, rarity) and shiny item markers
+- New panels: potion storage, material storage, pets, forge blueprints, temporary gifts, consumable quickslots
+- Backpack extender support (16 backpack slots); oversized Exalt vaults are rendered fully
+- Exaltations display; account level, boosts, tokens and cosmetics in account info
+- PCStats decoder for the Exalt format; fame bonuses, goals and class star thresholds updated
+- Totals include gifts, potion storage, materials, pets and quickslots
+- Stale pre-Exalt caches refresh automatically once
+- Added tools/datagen scripts for rebuilding game data from the client
+
 **2020-09-19** version 9.6.5
 
 - Improvements

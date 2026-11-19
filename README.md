@@ -1,3 +1,68 @@
+# Muledump — Exalt update
+
+This fork brings [Jakcodex/Muledump](https://github.com/jakcodex/muledump) 9.6.5 up to date with today's RotMG (Exalt). The original stopped working after Deca changed how account data is requested, and its item, skin and class data were years out of date.
+
+**Download:** grab the latest zip from the [Releases page](../../releases).
+
+## What's new in this fork
+
+**Loading accounts works again**
+- Uses Deca's current login flow: `account/verify` for an access token, then `char/list`, sent as POST requests.
+- Old cached account data that is missing the new fields is refreshed automatically once.
+
+**Up-to-date game data**
+- Item, skin and class data plus item sprites, rebuilt from the current Exalt client: 13,173 items (up from 4,043), 19 classes (up from 16, adding Kensei, Druid and Summoner) and 1,473 skins (up from 680), plus the new slot types (maces, sheaths, sigils).
+
+**Exalt-era items**
+- **Enchantments:** enchanted items show marker icons, and their tooltips list every enchantment with its effect and the item's rarity (Uncommon / Rare / Legendary / Divine).
+- **Shiny** item variants get a sparkle marker.
+
+**New storage and account panels** (each can be toggled in Options)
+- Potion Storage, Material Storage, Pets, Forge Blueprints, Gift Chest and temporary gifts.
+- Consumable quickslots (replacing the old HP/MP pot counts) and backpack extenders (16 backpack slots).
+- Large Exalt vaults: chests beyond the old 140-slot layouts are shown below the layout instead of being dropped.
+- Account level and XP, account-level boosts, fortune tokens, forge fire energy, and owned titles, emotes and entrances.
+
+**Character stats**
+- **Exaltations:** per-class exaltation levels, with the bonus each one gives your stats.
+- Character stats (PCStats) decoded from the new Exalt format, including newer dungeons.
+- Fame bonuses and goals use the current fame system; class stars use the current thresholds (20 / 500 / 1,500 / 5,000 / 15,000 base fame).
+
+**Totals** count gift chests, potion storage, material storage, pets and quickslots.
+
+## How to use it
+
+1. **Install the CORS extension** for your browser (same requirement as the original, see [Requirements](REQUIREMENTS.md)). Muledump can't contact Deca's servers without it.
+2. **Download and unzip** the latest release.
+3. **Open `muledump.html`** in that browser.
+4. **Add your accounts.** First-time setup walks you through it in SetupTools, or copy `accounts_sample.js` to `accounts.js` and fill in your login email and password.
+5. Muledump loads each account. Respect Deca's rate limits: too many accounts at once gets you blocked for about 10 minutes, so leave the "Account Load Delay" setting on automatic.
+
+Your credentials stay in your browser or in your local `accounts.js`. `accounts.js` is in `.gitignore`, so never commit it.
+
+**Coming from the original Muledump?** Copy your `accounts.js` (or a SetupTools backup) into the new folder and open `muledump.html`. Your options carry over, and old caches refresh on first load.
+
+## Regenerating game data (for maintainers)
+
+When Deca adds items, rebuild `lib/constants.js`, `lib/sheets.js` and `lib/renders.png` from the game client with the scripts in [`tools/datagen`](tools/datagen). You need Python 3 with `UnityPy` and `Pillow`.
+
+```bash
+# 1. export the client's text assets (XML) and texture atlases from RotMG Exalt's resources.assets
+python dump_text.py    "<RotMG Exalt>/RotMG Exalt_Data/resources.assets" gamedata/
+python dump_atlases.py "<RotMG Exalt>/RotMG Exalt_Data/resources.assets" atlases/
+
+# 2. keep a copy of the original 9.6.5 lib/constants.js as lib/constants.js.orig, then rebuild
+python build_muledump_data.py gamedata/ atlases/ ../../lib/ out/
+# copy out/constants.js, out/sheets.js, out/renders.png into lib/
+```
+
+## Not changed / not tested
+- Muledump Online (the GitHub Pages hosted version) still points at the original project.
+- Tested with regular (email) accounts. Steam and Kongregate logins use the same new flow but haven't been tested.
+- One Click Login is unchanged from 9.6.5.
+
+---
+
 # Jakcodex / Muledump
 
 ## Welcome
