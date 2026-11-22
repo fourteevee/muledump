@@ -918,3 +918,99 @@ table.forge .item {
     font-size: 0.85em;
     cursor: help;
 }
+
+/*  st set collection tracker  */
+.fl-StSets .featherlight-content {
+    width: 640px;
+    max-width: 95vw;
+}
+
+.stsets .stsetsHeader {
+    color: #ccc;
+    margin-bottom: 4px;
+}
+
+.stsets .stsetsSummary {
+    margin-bottom: 8px;
+    color: #ddd;
+}
+
+.stsets .stsetsBar {
+    height: 8px;
+    background: #2a2a2a;
+    border: 1px solid #444;
+    margin-bottom: 4px;
+}
+
+.stsets .stsetsBar > div {
+    height: 100%;
+    background: #3fae3f;
+}
+
+.stsets .stsetsControls {
+    justify-content: flex-start;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.stsets .stsetsLegacy {
+    color: #ccc;
+    font-size: 12px;
+}
+
+.stsets .stsetsList {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.stsets .stsetsClass {
+    color: #ffd84d;
+    font-weight: bold;
+    margin: 8px 0 2px;
+    border-bottom: 1px solid #444;
+}
+
+.stsets .stsetsRow {
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 2px;
+}
+
+.stsets .stsetsRow:nth-child(even) {
+    background: #2e2e2e;
+}
+
+.stsets .stsetsRow.complete .stsetsName {
+    color: #7cdc7c;
+}
+
+.stsets .stsetsInfo {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.stsets .stsetsName {
+    color: #eee;
+}
+
+.stsets .stsetsCount {
+    color: #999;
+    font-size: 11px;
+}
+
+.stsets .stsetsPieces {
+    flex: 0 0 auto;
+    width: auto;
+}
+
+.stsets .item.stsetsPiece.missing {
+    opacity: 0.3;
+    filter: grayscale(100%);
+}
+
+.stsets .stsetsLegend,
+.stsets .stsetsEmpty {
+    color: #999;
+    font-size: 11px;
+    margin-top: 6px;
+}

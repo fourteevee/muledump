@@ -1,3 +1,11 @@
+**2026-11-22** version 9.6.5-exalt.2 (fork)
+
+- New: ST Set Collection tracker (Totals menu and account menu)
+  * All 86 ST sets grouped by class, with owned pieces and quantities
+  * Sets complete, pieces owned, sets started and full sets you could assemble, overall and per class
+  * Filters for completion state, class and legacy sets; click a piece to find the accounts holding it
+- Added tools/datagen/build_stsets.py to regenerate lib/stsets.js from the client
+
 **2026-11-18** version 9.6.5-exalt.1 (fork)
 
 - Account loading fixed for Deca's current API (account/verify access token, then char/list over POST)

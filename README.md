@@ -30,6 +30,12 @@ This fork brings [Jakcodex/Muledump](https://github.com/jakcodex/muledump) 9.6.5
 
 **Totals** count gift chests, potion storage, material storage, pets and quickslots.
 
+**ST Set Collection tracker**
+- Open **Totals → ST Set Collection** (all accounts) or the same entry in an account's menu (one account).
+- Shows every ST set grouped by class, which pieces you own and how many, sets complete, pieces owned, and how many full sets you could assemble.
+- Filter by complete / incomplete / missing 1 piece / started / not started, by class, and with or without the legacy sets. Click a piece to find the accounts holding it.
+- See [the help page](docs/muledump/stsets.md).
+
 ## How to use it
 
 1. **Install the CORS extension** for your browser (same requirement as the original, see [Requirements](REQUIREMENTS.md)). Muledump can't contact Deca's servers without it.
@@ -44,7 +50,7 @@ Your credentials stay in your browser or in your local `accounts.js`. `accounts.
 
 ## Regenerating game data (for maintainers)
 
-When Deca adds items, rebuild `lib/constants.js`, `lib/sheets.js` and `lib/renders.png` from the game client with the scripts in [`tools/datagen`](tools/datagen). You need Python 3 with `UnityPy` and `Pillow`.
+When Deca adds items, rebuild `lib/constants.js`, `lib/sheets.js`, `lib/renders.png` and `lib/stsets.js` from the game client with the scripts in [`tools/datagen`](tools/datagen). You need Python 3 with `UnityPy` and `Pillow`.
 
 ```bash
 # 1. export the client's text assets (XML) and texture atlases from RotMG Exalt's resources.assets
@@ -54,6 +60,9 @@ python dump_atlases.py "<RotMG Exalt>/RotMG Exalt_Data/resources.assets" atlases
 # 2. keep a copy of the original 9.6.5 lib/constants.js as lib/constants.js.orig, then rebuild
 python build_muledump_data.py gamedata/ atlases/ ../../lib/ out/
 # copy out/constants.js, out/sheets.js, out/renders.png into lib/
+
+# 3. rebuild the ST set list used by the ST Set Collection tracker
+python build_stsets.py gamedata/ ../../lib/stsets.js
 ```
 
 ## Not changed / not tested
